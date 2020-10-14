@@ -27,9 +27,11 @@ const onBoardForm = (props) => {
                      />
                 </label>
                 <label>Email: 
-                    <input name="email" 
+                    <input 
+                    name="email" 
                     type="email" 
                     value={values.email}
+                    onChange={onChange}
                     />
                     </label>
                 <label>Password:
@@ -37,7 +39,7 @@ const onBoardForm = (props) => {
                     value={values.password}
                     onChange={onChange}
                     name='password'
-                    type='text'
+                    type='password'
                      />
                 </label>
                 <label>
