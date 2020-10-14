@@ -1,13 +1,50 @@
-import React from 'react';
+import React, {useState}from 'react';
 import Form from './Form'
 import User from './User'
 import './App.css';
 
+import axios from 'axios'
+import * as yup from 'yup'
+
+const initialFormValues = { 
+  username: "", 
+  email: "", 
+  password: "", 
+  termsOfService: false
+}
+
+const submitDisabled = true
+
+
+
 function App() {
+  const [users, setUsers]=useState([])
+  const [formValue, setFormValue]=useState(initialFormValues)
+  const [disabled, setDisabled]=useState(submitDisabled)
+
+  const inputChange = (name,value) => { 
+    setFormValue({
+      ...formValue,
+      [name]: value 
+    })
+  }
+
+  const formSubmit = () => { 
+    const newUser = { 
+      username: formValue.username.trim(),
+      email: formValue.email.trim(),
+    }
+  }
   return (
     <div className="App">
       <div className='container'>
-        <Form />
+        <Form 
+        values={formValue}
+        change={inputChange}
+        submit={formSubmit}
+        disabled={setDisabled}
+        
+        />
         <User />
       </div>
     </div>

@@ -1,20 +1,51 @@
 import React from 'react';
 
-const onBoardForm = () => {
+const onBoardForm = (props) => {
+    const {values, submit,change,disabled} = props
+
+    const onSubmit = (event) => {
+        event.preventDefault()
+        submit()
+      }
+    
+      const onChange = (event) => {
+        const { name, value, type, checked } = event.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        //if type is a checkbox use the checked property else use value property
+        change(name, valueToUse)
+      }
+
     return ( 
         <div>
-            <form className='form-container'>
-                <label>Name:
-                    <input />
+            <form className='form-container' onSubmit={onSubmit}>
+                <label>Username:
+                    <input
+                    value={values.username}
+                    onChange={onChange}
+                    name='username'
+                    type='text'
+                     />
                 </label>
                 <label>Email: 
-                    <input />
+                    <input name="email" 
+                    onChange={onChange}
+                    type="email" 
+                    value={values.email}
+                    />
                 </label>
                 <label>Password:
-                    <input />
+                <input
+                    value={values.password}
+                    onChange={onChange}
+                    name='password'
+                    type='password'
+                     />
                 </label>
                 <label>
-                <input id='checkbox' type='checkbox' />
+                <input id='checkbox' 
+                type='checkbox'
+                checked={values.termsOfService} 
+                onChange={onChange}/>
                  Terms of Service
                 </label>
                 <button>Submit</button>
