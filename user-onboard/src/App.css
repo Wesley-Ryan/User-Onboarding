@@ -2,13 +2,24 @@
   text-align: center;
 }
 
+.container {
+  width: 100;
+  display: flex;
+}
+
 .form-container {
   height: 400px;
-  width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   border: 1px solid black;
   padding: 3%;
+  margin: 10px;
+}
+.user-container {
+  height: 400px;
+  width: 50%;
+  margin: 10px;
 }
 
 label {

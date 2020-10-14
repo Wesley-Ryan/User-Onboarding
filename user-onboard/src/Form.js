@@ -14,7 +14,8 @@ const onBoardForm = () => {
                     <input />
                 </label>
                 <label>
-                <input id='checkbox' type='checkbox' /> Agree to Terms
+                <input id='checkbox' type='checkbox' />
+                 Terms of Service
                 </label>
                 <button>Submit</button>
             </form>
@@ -24,7 +25,3 @@ const onBoardForm = () => {
  
 export default onBoardForm;
 
-// 
-// Email
-// Password
-// Terms of Service (checkbox)

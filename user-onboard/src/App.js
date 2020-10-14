@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form'
+import User from './User'
 import './App.css';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <div className='container'>
         <Form />
+        <User />
       </div>
     </div>
   );
