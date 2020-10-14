@@ -1,12 +1,17 @@
 import React from 'react';
+import UserCard from './Card'
 
-const UserCard = (props) => {
+const User = (props) => {
+    const {users} = props
     return (
 
     <div className='user-container'>
-        UserName::is going to go here
+     
+        {users.map((user, index) => { 
+            return <UserCard user={user} key={index} />
+        })}
      </div>  
      );
 }
  
-export default UserCard;
+export default User;

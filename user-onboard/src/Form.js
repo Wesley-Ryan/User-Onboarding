@@ -46,7 +46,7 @@ const onBoardForm = (props) => {
                 <input id='checkbox' type='checkbox' name='termsOfService' onChange={onChange} />
                  Terms of Service
                 </label>
-                <button disabled={disabled}>Submit</button>
+                <button >Submit</button>
             </form>
         </div>
      );
