@@ -28,27 +28,23 @@ const onBoardForm = (props) => {
                 </label>
                 <label>Email: 
                     <input name="email" 
-                    onChange={onChange}
                     type="email" 
                     value={values.email}
                     />
-                </label>
+                    </label>
                 <label>Password:
                 <input
                     value={values.password}
                     onChange={onChange}
                     name='password'
-                    type='password'
+                    type='text'
                      />
                 </label>
                 <label>
-                <input id='checkbox' 
-                type='checkbox'
-                checked={values.termsOfService} 
-                onChange={onChange}/>
+                <input id='checkbox' type='checkbox' name='termsOfService' onChange={onChange} />
                  Terms of Service
                 </label>
-                <button>Submit</button>
+                <button disabled={disabled}>Submit</button>
             </form>
         </div>
      );

@@ -33,6 +33,7 @@ function App() {
     const newUser = { 
       username: formValue.username.trim(),
       email: formValue.email.trim(),
+      
     }
   }
   return (
@@ -43,6 +44,7 @@ function App() {
         change={inputChange}
         submit={formSubmit}
         disabled={setDisabled}
+        updateChecked={setFormValue}
         
         />
         <User />
