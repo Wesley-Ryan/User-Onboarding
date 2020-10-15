@@ -23,9 +23,9 @@ const OnboardForm = (props) => {
                      />
                 </label>
                 <label>
-                    Password: 
+                    Email: 
                     <input name ='password'
-                    type='password'
+                    type='text'
                     value={values.password}
                     onChange={onChange}
                      />
