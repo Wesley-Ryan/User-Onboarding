@@ -17,7 +17,7 @@ const initialFormData = {
   username: "", 
   password: "", 
   url: "",
-  termsOfService: false
+  termsOfService: true
 }
 
 const submitDisabled = true
@@ -64,7 +64,7 @@ function App() {
     <div className="App">
       <h1>User On Boarding</h1> 
       <div className='container'>
-     <OnboardForm setData={setFormData} />
+     <OnboardForm setValues={setFormData} values={formData} />
      <UserList users={users}/>
      </div>
     </div>
