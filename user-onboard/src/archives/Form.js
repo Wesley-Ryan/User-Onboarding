@@ -43,7 +43,7 @@ const onBoardForm = (props) => {
                      />
                 </label>
                 <label>
-                <input id='checkbox' type='checkbox' name='termsOfService' onChange={onChange} />
+                <input id='checkbox' type='checkbox' name='termsOfService' onChange={onChange} checked={values.termsOfService}/>
                  Terms of Service
                 </label>
                 <button >Submit</button>
