@@ -77,6 +77,9 @@ function App() {
   return (
     <div className="App">
       <h1>User On Boarding</h1> 
+      <button id='refresh' onClick={() => { 
+        window.location.reload()
+      }}>Refresh</button>
       <div className='container'>
      <OnboardForm setValues={setFormData} values={formData} submit={onSubmit}  />
      <UserList users={users}/>

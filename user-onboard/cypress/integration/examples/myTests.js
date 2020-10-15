@@ -8,6 +8,7 @@ const emailInput = () => cy.get('input[name=password]')
 const urlInput = () => cy.get('input[name=url]') 
 const tosCheckbox = () => cy.get('input[id=checkbox]')
 const submitBtn = () => cy.get('button[id=submitBtn]') 
+const refreshBtn = () => cy.get('button[id=refresh]')
 
 it('The inputs work properly', () => { 
 //verify elements
@@ -28,6 +29,9 @@ submitBtn().click()
 //check the data 
 cy.contains("test Username").should('exist')
 cy.contains("test@email.com").should('exist')
+
+//clear the data
+refreshBtn().click()
 })
 
 })
