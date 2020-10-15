@@ -1,15 +1,17 @@
 import React from 'react';
+import UserCard from './UserCard';
 
 
 
 
-const UserList = () => {
-    
+const UserList = (props) => {
+    const {users} = props
     return (
 
-    <div className='user-container'>
-     
-       List of Users... 
+    <div>
+       {users.map((user, index) => { 
+         return <UserCard user={user} key={index} />
+       })}
      </div>  
      );
 }

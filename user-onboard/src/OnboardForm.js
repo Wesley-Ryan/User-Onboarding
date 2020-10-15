@@ -2,7 +2,7 @@ import React from 'react';
 
 const OnboardForm = () => {
     return (
-        <div className='container'>
+        <div>
             <form>
                 <label>
                     Username: 
