@@ -17,10 +17,8 @@ const initialFormData = {
   username: "", 
   password: "", 
   url: "",
-  termsOfService: true
+  termsOfService: false
 }
-
-const submitDisabled = true
 
 
 
@@ -29,7 +27,7 @@ function App() {
   const [formData,setFormData] = useState(initialFormData)
 
 
-
+  
   const clearForms = (initialFormData) => { 
     setFormData(initialFormData)
   }
@@ -38,6 +36,7 @@ function App() {
     axios.get('https://reqres.in/api/users')
     .then((response) => { 
       setUsers(response.data.data)
+      
     })
     .catch((error) => { 
       console.log("There was an error communicating from the server", error)
@@ -45,9 +44,11 @@ function App() {
   }
 
   const postUsers =(newUser) => { 
-    axios.post('https://reqres.in/api/users')
+    axios.post('https://reqres.in/api/users',newUser )
     .then((response) => { 
-      console.log(response, newUser)
+      setUsers([response.data, ...users])
+      setFormData(initialFormData)
+        
     })
     .catch((error) => { 
       console.log("There was an error posting to the server", error)
@@ -56,7 +57,20 @@ function App() {
 
   useEffect(() => { 
     getUsers()
+    
   }, [])
+
+  const onSubmit=(event) => { 
+    event.preventDefault()
+    const newUser = { 
+      first_name: formData.username.trim(), 
+      email: formData.password.trim(), 
+      avatar: formData.url.trim(),
+    }
+    postUsers(newUser)
+    
+    
+  }
 
   
   
@@ -64,7 +78,7 @@ function App() {
     <div className="App">
       <h1>User On Boarding</h1> 
       <div className='container'>
-     <OnboardForm setValues={setFormData} values={formData} />
+     <OnboardForm setValues={setFormData} values={formData} submit={onSubmit}  />
      <UserList users={users}/>
      </div>
     </div>

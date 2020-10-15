@@ -1,17 +1,19 @@
 import React from 'react';
 
 const OnboardForm = (props) => {
-    const {values, setValues} = props
+    const {values, setValues, submit} = props
 
     const onChange = event => {
-        const { name, value } = event.target
-        setValues({ ...values, [name]: value })
+        const { name, value, checked, type } = event.target
+        const valueToUse = type === 'checkbox' ? checked : value
+        //if type is a checkbox use the checked property else use value property
+        setValues({ ...values, [name]: valueToUse })
       }
 
 
     return (
         <div>
-            <form>
+            <form onSubmit={submit}>
                 <label>
                     Username: 
                     <input name='username'
@@ -38,8 +40,10 @@ const OnboardForm = (props) => {
                 </label>
                 <input id='checkbox'
                  type='checkbox'
+                 name='termsOfService'
+                 onChange={onChange}
                   /> Agree to Terms
-                <button disabled={values.termsOfService}>Submit</button>
+                <button disabled={!values.termsOfService}>Submit</button>
             </form>
         </div>
       );
