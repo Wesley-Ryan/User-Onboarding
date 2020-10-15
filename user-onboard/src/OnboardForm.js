@@ -12,6 +12,10 @@ const OnboardForm = () => {
                     Password: 
                     <input />
                 </label>
+                <label id='url'>
+                     URL: 
+                    <input />
+                </label>
                 <input id='checkbox' type='checkbox' /> Agree to Terms
                 <button>Submit</button>
             </form>
