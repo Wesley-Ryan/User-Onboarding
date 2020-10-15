@@ -43,7 +43,7 @@ const OnboardForm = (props) => {
                  name='termsOfService'
                  onChange={onChange}
                   /> Agree to Terms
-                <button disabled={!values.termsOfService}>Submit</button>
+                <button id='submitBtn' disabled={!values.termsOfService}>Submit</button>
             </form>
         </div>
       );
